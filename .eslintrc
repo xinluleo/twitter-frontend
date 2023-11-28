@@ -1,0 +1,18 @@
+{
+  "extends": "airbnb",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off"
+  },
+  "env": {
+    "browser": true
+  }
+}
