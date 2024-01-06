@@ -1,6 +1,7 @@
 import {
   Button, Dialog, Form, Input,
 } from 'antd-mobile';
+import { loginService } from '../../services/login';
 import './index.css';
 
 const initialValues = {
@@ -10,10 +11,17 @@ const initialValues = {
 
 const Login = () => {
   const [form] = Form.useForm();
-  const onSubmit = () => {
+  const onSubmit = async () => {
     const values = form.getFieldsValue();
+    const res = await loginService(values.username, values.password);
+    if (res && res.length > 0) {
+      Dialog.alert({
+        content: '登录成功',
+      });
+      return;
+    }
     Dialog.alert({
-      content: JSON.stringify(values),
+      content: '登录失败',
     });
   };
 

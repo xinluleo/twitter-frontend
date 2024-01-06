@@ -10,7 +10,8 @@
   "rules": {
     "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
     "react/react-in-jsx-scope": "off",
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   },
   "env": {
     "browser": true

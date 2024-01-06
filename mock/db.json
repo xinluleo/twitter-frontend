@@ -1,0 +1,16 @@
+{
+  "user": [
+    {
+      "username": "哈哈哈",
+      "password": "123456",
+      "age": 23,
+      "address": "北京市海淀区"
+    },
+    {
+      "username": "嘿嘿嘿",
+      "password": "123456",
+      "age": 23,
+      "address": "山东省济南市"
+    }
+  ]
+}
