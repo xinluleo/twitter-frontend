@@ -24,3 +24,5 @@ service: const getUser = (params) => get('/user', params).then((res) => {
 - 第二步： 用 React 创建一个静态版本
 
 ## style 技术选择
+- scss 写简单的嵌套 -> css
+- css module 不用关心命名空间，不会出现会被覆盖的
