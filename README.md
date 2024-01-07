@@ -26,3 +26,7 @@ service: const getUser = (params) => get('/user', params).then((res) => {
 ## style 技术选择
 - scss 写简单的嵌套 -> css
 - css module 不用关心命名空间，不会出现会被覆盖的
+
+## 工程化的配置信息
+- carco.config.js: 配置 webpack 文件的快捷方式
+- jsconfig.json: vscode 使用的 js 相关配置文件
