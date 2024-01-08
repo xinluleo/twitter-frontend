@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Register from './containers/Register';
 import './index.css';
-import { startVConsole } from './utils';
+// import { startVConsole } from './utils';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,4 +13,4 @@ root.render(
 );
 
 // 启动 vconsole
-startVConsole();
+// startVConsole();

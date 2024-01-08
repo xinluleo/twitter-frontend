@@ -22,6 +22,7 @@ service: const getUser = (params) => get('/user', params).then((res) => {
 ## React 五步法
 - 第一步： 将设计好的 UI 划分为组件层级
 - 第二步： 用 React 创建一个静态版本
+- 第三步： 确定 UI state 的最小（且完整）表示
 
 ## style 技术选择
 - scss 写简单的嵌套 -> css
