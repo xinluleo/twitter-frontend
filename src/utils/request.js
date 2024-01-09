@@ -1,3 +1,4 @@
+import { Toast } from 'antd-mobile';
 import axios from 'axios';
 
 const domain = 'http://localhost:3333';
@@ -9,7 +10,9 @@ axios.interceptors.request.use((config) => ({
 }));
 
 // 对返回的结果做拦截，主要有两部分：数据转换，错误处理
-axios.interceptors.response.use((response) => response.data, (error) => Promise.reject(error));
+axios.interceptors.response.use((response) => response.data, () => {
+  Toast.show('服务调用失败');
+});
 
 // get 获取服务器资源
 export const get = (url) => axios.get(url);

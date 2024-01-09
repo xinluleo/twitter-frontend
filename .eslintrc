@@ -11,9 +11,24 @@
     "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": "off",
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off"
   },
   "env": {
     "browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@components", "./src/components"],
+          ["@assets", "./src/assets"],
+          ["@utils", "./src/utils"],
+          ["@containers", "./src/containers"],
+          ["@services", "./src/services"]
+        ]
+      }
+    }
   }
 }
