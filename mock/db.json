@@ -1,16 +1,18 @@
 {
   "user": [
     {
-      "username": "哈哈哈",
-      "password": "123456",
-      "age": 23,
-      "address": "北京市海淀区"
+      "password": "222",
+      "username": "xin",
+      "tel": "13333333333",
+      "birthday": "20210109",
+      "id": 1
     },
     {
-      "username": "嘿嘿嘿",
-      "password": "123456",
-      "age": 23,
-      "address": "山东省济南市"
+      "password": "33221",
+      "username": "Test",
+      "tel": "15555555555",
+      "birthday": "20240108",
+      "id": 2
     }
   ]
 }
