@@ -1,10 +1,11 @@
 import TInput from '@components/TInput';
+import { login } from '@services/login';
+import { useAppContext } from '@utils/context';
 import {
   Button, Dialog, Form,
 } from 'antd-mobile';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../../services/login';
 
 import style from './index.module.scss';
 
@@ -14,6 +15,15 @@ const Login = () => {
     username: '',
     password: '',
   });
+
+  const [store, setStore] = useAppContext();
+
+  useEffect(() => {
+    setStore({
+      ...store,
+      closeHeaderHandler: null,
+    });
+  }, []);
 
   const onSubmit = async () => {
     const values = await form.validateFields();

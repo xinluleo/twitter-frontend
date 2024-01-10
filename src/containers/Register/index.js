@@ -1,7 +1,9 @@
 import Show from '@components/Show';
 import { registerUser } from '@services/register';
+import { useAppContext } from '@utils/context';
 import { Toast } from 'antd-mobile';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import StepOne from './components/StepOne';
 import StepTwo from './components/StepTwo';
 
@@ -16,6 +18,24 @@ const STEP = {
 const Register = () => {
   const [step, setStep] = useState(STEP.ONE);
   const [userInfo, setUserInfo] = useState({});
+
+  const [store, setStore] = useAppContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (step === STEP.ONE) {
+      setStore({
+        ...store,
+        closeHeaderHandler: () => navigate('/login'),
+      });
+    }
+    if (step === STEP.TWO) {
+      setStore({
+        ...store,
+        closeHeaderHandler: () => setStep(STEP.ONE),
+      });
+    }
+  }, [step]);
 
   const gotoNextStepHandler = (data) => {
     setUserInfo(data);
@@ -33,10 +53,6 @@ const Register = () => {
     }
     Toast.show('注册失败');
   };
-
-  // const onClickClose = () => {
-  //   setStep(STEP.ONE);
-  // };
 
   return (
     <div>
