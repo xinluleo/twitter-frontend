@@ -8,16 +8,17 @@ const TInput = ({
   value,
   length,
   onChange,
+  ...otherProps
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [showBorder, setShowBorder] = useState(false);
 
   useEffect(() => {
-    if (value.length > 0) {
+    if (value) {
       setIsFocused(true);
       setShowBorder(true);
     }
-  }, []);
+  }, [value]);
 
   const onFocus = () => {
     setIsFocused(true);
@@ -25,16 +26,17 @@ const TInput = ({
   };
 
   const onBlur = () => {
-    if (value.length === 0) {
+    if (!value || value.length === 0) {
       setIsFocused(false);
     }
     setShowBorder(false);
   };
 
   const onChangeHandler = (val) => {
-    if (length && val.length <= length) {
-      onChange(val);
+    if (length && val.length > length) {
+      return;
     }
+    onChange(val);
   };
 
   return (
@@ -55,6 +57,8 @@ const TInput = ({
         onBlur={onBlur}
         value={value}
         onChange={onChangeHandler}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...otherProps}
       />
     </div>
   );
