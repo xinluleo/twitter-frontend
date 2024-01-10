@@ -8,7 +8,7 @@ const Show = ({
   children,
 }) => (
   <div style={{ display: visible ? 'block' : 'none' }}>
-    {children}
+    { children }
   </div>
 );
 
