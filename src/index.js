@@ -1,6 +1,7 @@
 import App from '@containers/App';
 import Login from '@containers/Login';
 import Register from '@containers/Register';
+import Tweets from '@containers/Tweets';
 import { CtxProvider } from '@utils/context';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -18,6 +19,7 @@ root.render(
           <Route path="/" element={<App />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/tweets" element={<Tweets />} />
           </Route>
         </Routes>
       </BrowserRouter>

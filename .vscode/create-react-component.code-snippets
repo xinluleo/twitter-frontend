@@ -1,0 +1,37 @@
+{
+	"Print to console": {
+		"scope": "javascript,typescript",
+		"prefix": "log",
+		"body": [
+			"console.log('$1: ', $1);"
+		],
+		"description": "Log output to console"
+	},
+	"Create a component": {
+		"scope": "javascript,typescript",
+		"prefix": "cc",
+		"body": [
+			"import { useEffect, useState } from 'react';",
+			"",
+			"import style from './index.module.scss';",
+			"",
+			"/**",
+ 			"* $2",
+ 			"*/",
+			"const $1 = () => {",
+			"  const [data, setData] = useState();",
+			"",
+			"  useEffect(() => {",
+			"    console.log('data: ', data);",
+			"    setData([]);",
+			"  }, []);",
+			"",
+			"  return <div className={style.container}>{data}</div>;",
+			"};",
+			"",
+			"export default $1;",
+			"",
+		],
+		"description": "Lay out skeleton for a component"
+	}
+}
