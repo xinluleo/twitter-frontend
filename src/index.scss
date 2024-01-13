@@ -8,3 +8,12 @@ body {
   background-color: #fff;
 }
 
+$tBlue: #1d9bf0;
+$tGray: #868a8c;
+$tGrayWhite: #cfd9de;
+$tFontColor: #536471;
+$tBorderColor: #eee;
+
+.adm-text-area {
+  --placeholder-color: $tFontColor;
+}

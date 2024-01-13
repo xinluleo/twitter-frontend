@@ -5,6 +5,7 @@
       "username": "xin",
       "tel": "13333333333",
       "birthday": "20210109",
+      "avatar_url": "https://img.shoufaw.com/wp-content/uploads/2020/10/aEjURn.jpg",
       "id": 1
     },
     {
@@ -12,6 +13,7 @@
       "username": "Test",
       "tel": "15555555555",
       "birthday": "20240108",
+      "avatar_url": "https://img.shoufaw.com/wp-content/uploads/2020/10/aEjURn.jpg",
       "id": 2
     }
   ]

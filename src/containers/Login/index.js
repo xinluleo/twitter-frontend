@@ -1,8 +1,14 @@
 import {
   Button, Dialog, Form, Input,
 } from 'antd-mobile';
+<<<<<<< Updated upstream
 import { loginService } from '../../services/login';
 import './index.css';
+=======
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+>>>>>>> Stashed changes
 
 const initialValues = {
   username: 'lol',
@@ -12,9 +18,22 @@ const initialValues = {
 const Login = () => {
   const [form] = Form.useForm();
   const onSubmit = async () => {
+<<<<<<< Updated upstream
     const values = form.getFieldsValue();
     const res = await loginService(values.username, values.password);
     if (res && res.length > 0) {
+=======
+    const values = await form.validateFields();
+    if (values) {
+      const res = await login(values.username, values.password);
+      if (res.success && res.data && res.data.length > 0) {
+        Dialog.alert({
+          content: '登录成功',
+        });
+        Cookies.set('userId', res.data[0].id);
+        return;
+      }
+>>>>>>> Stashed changes
       Dialog.alert({
         content: '登录成功',
       });

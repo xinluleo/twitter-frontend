@@ -1,6 +1,4 @@
-$tBlue: #1d9bf0;
-$tGray: #868a8c;
-$tGrayWhite: #cfd9de;
+@import './index.scss';
 
 .input {
   border: solid 1px $tGrayWhite;
@@ -8,4 +6,35 @@ $tGrayWhite: #cfd9de;
   height: 53px;
   padding: 5px 10px;
   box-sizing: border-box;
+<<<<<<< Updated upstream
+=======
+}
+
+.formContainer {
+  :global(.adm-list-body) {
+    background: none;
+    border: none;
+  }
+  :global(.adm-list-item) {
+    padding: 0;
+    margin: 0;
+    background: none;
+  }
+  :global(.adm-list-item-content) {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.formTitle {
+  font-size: 25px;
+  font-weight: 700;
+  height: 68px;
+  line-height: 68px;
+}
+
+.icon {
+  height: 20px;
+>>>>>>> Stashed changes
 }
