@@ -1,30 +1,21 @@
-<<<<<<< Updated upstream
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Register from './containers/Register';
-import './index.css';
-=======
 import App from '@containers/App';
-import Comment from '@containers/Comment';
 import Login from '@containers/Login';
 import Register from '@containers/Register';
 import Tweets from '@containers/Tweets';
 import { CtxProvider } from '@utils/context';
+
+import Comment from '@containers/Comment';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './index.scss';
->>>>>>> Stashed changes
+
 // import { startVConsole } from './utils';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<<<<<<< Updated upstream
-    {/* <Login /> */}
-    <Register />
-=======
     <CtxProvider>
       <BrowserRouter>
         <Routes>
@@ -40,7 +31,6 @@ root.render(
         </Routes>
       </BrowserRouter>
     </CtxProvider>
->>>>>>> Stashed changes
   </React.StrictMode>,
 );
 

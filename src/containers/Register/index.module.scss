@@ -5,6 +5,7 @@
 }
 
 .formContainer {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   :global(.adm-list-body) {
     background: none;
@@ -34,6 +35,13 @@
 .formTitle {
   composes: formTitle from '../../index.scss';
 >>>>>>> Stashed changes
+=======
+  composes: formContainer from '../../common.module.scss';
+}
+
+.formTitle {
+  composes: formTitle from '../../common.module.scss';
+>>>>>>> main
 }
 
 .input {

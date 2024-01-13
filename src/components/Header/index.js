@@ -1,37 +1,19 @@
-<<<<<<< Updated upstream
-import { CloseOutline } from 'antd-mobile-icons';
-import PropTypes from 'prop-types';
-=======
 import { useAppContext } from '@utils/context';
 import { useGoTo, useIncludeMenu } from '@utils/hooks';
 import { Button } from 'antd-mobile';
 import { CloseOutline } from 'antd-mobile-icons';
 
->>>>>>> Stashed changes
 import logo from '../../assets/twitter-logo.svg';
 
 import style from './index.module.scss';
 
-<<<<<<< Updated upstream
-const Header = ({
-  onClickClose,
-}) => (
-  <div className={style.header}>
-    <CloseOutline className={style.closeIcon} onClick={onClickClose} />
-    <img src={logo} alt="twitter-logo" className={style.twitterLogo} />
-  </div>
-);
-
-Header.propTypes = {
-  onClickClose: PropTypes.func.isRequired,
-=======
 const Header = () => {
   const [store] = useAppContext();
   const include = useIncludeMenu();
   const goto = useGoTo();
 
-  const onClick = () => {
-  };
+  // const onClick = () => {
+  // };
 
   const headerComponents = [];
 
@@ -76,7 +58,6 @@ const Header = () => {
       {headerComponents}
     </div>
   );
->>>>>>> Stashed changes
 };
 
 export default Header;

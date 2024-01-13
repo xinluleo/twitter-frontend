@@ -23,7 +23,7 @@ const StepOne = ({
     username: '',
     tel: '',
     email: '',
-    birthday: '20220203',
+    birthday: '19900101',
   });
   const [accountType, setAccountType] = useState(ACCOUNT_TYPE.TEL);
   const [footerButtonDisabled, setFooterButtonDisabled] = useState(true);
