@@ -1,5 +1,5 @@
 import { menus } from '@utils/constants';
-import { useGoTo, useIncludeMenu } from '@utils/hooks';
+import { useCurrentMenu, useGoTo } from '@utils/hooks';
 import { TabBar } from 'antd-mobile';
 
 import style from './index.module.scss';
@@ -9,13 +9,13 @@ import style from './index.module.scss';
 */
 const Bottom = () => {
   const goto = useGoTo();
-  const include = useIncludeMenu();
+  const menu = useCurrentMenu();
 
   const onChangeTabItem = (key) => {
     goto(key);
   };
 
-  if (!include) {
+  if (menu.hideHeader) {
     return null;
   }
 
@@ -23,7 +23,7 @@ const Bottom = () => {
     <div className={style.container}>
       <TabBar onChange={onChangeTabItem}>
         {menus.map((item) => (
-          <TabBar.Item key={item.key} icon={item.icon} />
+          item.isMenu && <TabBar.Item key={item.key} icon={item.icon} />
         ))}
       </TabBar>
     </div>

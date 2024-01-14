@@ -1,8 +1,13 @@
-import { Steps, TextArea } from 'antd-mobile';
+import Header from '@components/Header';
+import TButton from '@components/TButton';
+import { createComment } from '@services/comment';
+import { useAppContext } from '@utils/context';
+import { Steps, TextArea, Toast } from 'antd-mobile';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { useAppContext } from '@utils/context';
+import { useGoTo } from '@utils/hooks';
 import style from './index.module.scss';
 
 const { Step } = Steps;
@@ -44,14 +49,38 @@ const defaultTweet = {
 const Comment = () => {
   const [store] = useAppContext();
   const [data, setData] = useState(defaultTweet);
+  const [text, setText] = useState('');
+  const params = useParams();
+  const goTo = useGoTo();
 
   useEffect(() => {
     console.log('data: ', data);
     setData(defaultTweet);
   }, []);
 
+  const onClickReply = () => {
+    createComment({
+      content: text,
+      tweet_id: params.id,
+    }).then((res) => {
+      if (res?.success) {
+        Toast.show('回复成功');
+        goTo(); // 回到上一页
+        return;
+      }
+      Toast.show('回复失败');
+    });
+  };
+
+  const onChangeText = (v) => {
+    setText(v);
+  };
+
   return (
     <div className={style.container}>
+      <Header>
+        <TButton disabled={text.length === 0} onClick={onClickReply}>回复</TButton>
+      </Header>
       <Steps
         direction="vertical"
       >
@@ -85,7 +114,7 @@ const Comment = () => {
           }
           title={(
             <div>
-              <TextArea className={style.text} placeholder="发布你的回复" />
+              <TextArea value={text} onChange={onChangeText} className={style.text} placeholder="发布你的回复" />
             </div>
           )}
         />

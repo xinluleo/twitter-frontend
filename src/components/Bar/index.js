@@ -14,11 +14,12 @@ const getBars = ({
   commentsCount,
   likesCount,
   navigate,
+  id,
 }) => [
   {
     key: 'comment',
     icon: (
-      <div onClick={() => navigate('/comment')}>
+      <div onClick={() => navigate(`/comment/${id}`)}>
         <img className={style.icon} src={commentSvg} alt="comment" />
         {commentsCount > 0 && <span className={style.count}>{commentsCount}</span>}
       </div>
@@ -50,6 +51,7 @@ const Bar = ({
   commentsCount,
   likesCount,
   isBottom,
+  id,
 }) => {
   const [activeKey, setActiveKey] = useState();
   const navigate = useNavigate();
@@ -69,6 +71,7 @@ const Bar = ({
           commentsCount,
           likesCount,
           navigate,
+          id,
         }).map((item) => (
           <TabBar.Item key={item.key} icon={item.icon} />
         ))}
@@ -81,6 +84,7 @@ Bar.propTypes = {
   commentsCount: PropTypes.number,
   likesCount: PropTypes.number,
   isBottom: PropTypes.bool,
+  id: PropTypes.number.isRequired,
 };
 
 Bar.defaultProps = {
