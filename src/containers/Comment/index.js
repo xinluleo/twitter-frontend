@@ -54,7 +54,6 @@ const Comment = () => {
   const goTo = useGoTo();
 
   useEffect(() => {
-    console.log('data: ', data);
     setData(defaultTweet);
   }, []);
 

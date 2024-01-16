@@ -4,7 +4,9 @@ import { getMenuByKey, getMenuByLink, includeMenu } from './constants';
 // 获取当前菜单
 export const useCurrentMenu = () => {
   const lo = useLocation();
-  return getMenuByLink(lo.pathname);
+  const menu = getMenuByLink(lo.pathname) || {};
+  // console.log('menu: ', menu);
+  return menu;
 };
 
 // 跳转到指定菜单

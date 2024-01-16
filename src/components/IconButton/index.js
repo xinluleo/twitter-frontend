@@ -1,31 +1,35 @@
 import PropTypes from 'prop-types';
 import { ReactSVG } from 'react-svg';
 
-import style from './index.module.scss';
-
 const IconButton = ({
   src,
   className,
-}) => {
-  <div className={style.container}>
+  svgClass,
+}) => (
+  <div className={className}>
     <ReactSVG
       src={src}
       beforeInjection={(svg) => {
-        if (!className) {
-          return;
-        }
+        if (!svgClass) return;
         svg.childNodes.forEach((child) => {
-          if (child.tagName === 'path') {
-            child.classList.add(className);
+          if (child && child.classList) {
+            child.classList.add(svgClass);
           }
         });
       }}
     />
-  </div>;
-};
+  </div>
+);
 
 IconButton.propTypes = {
   src: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  svgClass: PropTypes.string,
+};
+
+IconButton.defaultProps = {
+  className: null,
+  svgClass: null,
 };
 
 export default IconButton;

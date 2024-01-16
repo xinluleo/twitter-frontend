@@ -1,0 +1,18 @@
+@import '../../index.scss';
+
+.uploadFile {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+}
+
+.imageUpload {
+  fill: $tBlue;
+}
+.imageButton {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}

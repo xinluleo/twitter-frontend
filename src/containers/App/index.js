@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
+import CreateButton from '@components/CreateButton';
 import style from './index.module.scss';
 
 const App = () => {
@@ -39,11 +40,16 @@ const App = () => {
     init();
   }, []);
 
+  const onClickCreateTweet = () => {
+    navigate('/createTweet');
+  };
+
   return (
     <div className={style.container}>
       {!menu.hideHeader && <Header />}
       <Outlet />
       <Bottom />
+      {!menu.hideHeader && <CreateButton onClick={onClickCreateTweet} />}
     </div>
   );
 };

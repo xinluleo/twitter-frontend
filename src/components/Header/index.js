@@ -32,7 +32,7 @@ const Header = ({
       );
       headerComponents.push(
         <span key="title" className={style.title}>
-          {store.title}
+          {menu.title}
         </span>,
       );
     }

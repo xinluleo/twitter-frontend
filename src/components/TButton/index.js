@@ -1,6 +1,5 @@
 import { Button } from 'antd-mobile';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
 
 import style from './index.module.scss';
 
@@ -11,20 +10,11 @@ const TButton = ({
   disabled,
   onClick,
   children,
-}) => {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    console.log('data: ', data);
-    setData([]);
-  }, []);
-
-  return (
-    <Button disabled={disabled} className={style.button} onClick={onClick}>
-      {children}
-    </Button>
-  );
-};
+}) => (
+  <Button disabled={disabled} className={style.button} onClick={onClick}>
+    {children}
+  </Button>
+);
 
 TButton.propTypes = {
   disabled: PropTypes.bool,

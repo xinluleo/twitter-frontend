@@ -3,6 +3,7 @@
 .container {
   height: 200px;
   padding: 10px 5px 0 0;
+  margin-bottom: 10px;
   :global(.adm-mask) {
     background-color: black !important;
   }
@@ -12,12 +13,18 @@
   position: absolute;
   width: 50%;
   border: 1px solid white;
+  border-radius: 20px;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+.itemImg {
+  height: 100%;
+  width: 100%;
 }
 
 .wrapper {
   position: relative;
-  border-radius: 20px;
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -35,12 +42,12 @@
   :global(.img0) {
     left: 0;
     height: 200px;
-    border-right: solid 2px white;
+    border-right: solid 5px white;
   }
   :global(.img1) {
     left: 50%;
     height: 200px;
-    border-left: solid 2px white;
+    border-left: solid 5px white;
   }
 }
 
@@ -48,15 +55,20 @@
   :global(.img0) {
     left: 0;
     height: 200px;
+    border-right: solid 5px white;
   }
   :global(.img1) {
     left: 50%;
     height: 100px;
+    border-left: solid 5px white;
+    border-bottom: solid 5px white;
   }
   :global(.img2) {
     left: 50%;
     top: 100px;
     height: 100px;
+    border-left: solid 5px white;
+    border-top: solid 5px white;
   }
 }
 
@@ -65,20 +77,42 @@
     left: 0;
     top: 0;
     height: 100px;
+    border-right: solid 5px white;
+    border-bottom: solid 5px white;
   }
   :global(.img1) {
     left: 50%;
     top: 0;
     height: 100px;
+    border-left: solid 5px white;
+    border-bottom: solid 5px white;
   }
   :global(.img2) {
     left: 50%;
     top: 100px;
     height: 100px;
+    border-left: solid 5px white;
+    border-top: solid 5px white;
   }
   :global(.img3) {
     left: 0;
     top: 100px;
     height: 100px;
+    border-right: solid 5px white;
+    border-top: solid 5px white;
   }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  padding: 5px;
 }
