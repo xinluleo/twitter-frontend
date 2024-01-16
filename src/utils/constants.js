@@ -8,6 +8,12 @@ import style from '../common.module.scss';
 
 export const menus = [
   {
+    key: 'tweet',
+    title: '推文',
+    link: '/tweet/:id',
+    hideHeader: true,
+  },
+  {
     key: 'tweets',
     title: '主页',
     link: '/',
@@ -37,13 +43,11 @@ export const menus = [
   },
   {
     key: 'comment',
-    title: '回复',
     link: '/comment/:id',
     hideHeader: true,
   },
   {
     key: 'createTweet',
-    title: '发推',
     link: '/createTweet',
     hideHeader: true,
   },

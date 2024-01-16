@@ -1,8 +1,9 @@
 import Bar from '@components/Bar';
+import Header from '@components/Header';
 import ImageCard from '@components/ImageCard';
-import { useGoTo } from '@utils/hooks';
-import moment from 'moment';
+import { useEffect, useState } from 'react';
 
+import moment from 'moment';
 import style from './index.module.scss';
 
 const tweet = {
@@ -52,43 +53,54 @@ const tweet = {
   photo_urls: ['https://mooc-drop.oss-cn-beijing.aliyuncs.com/20200607085521_Czt8N.gif',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZuKXKJeqzfVVrwwS6IZ0NfZUwaxMoXiJkeya7tUM04zl3BJtbbbx2rThPKxwpXeufwbc&usqp=CAU',
     'https://pgw.udn.com.tw/gw/photo.php?u=https://uc.udn.com.tw/photo/2021/08/12/realtime/13315182.jpg',
-    // 'https://mooc-drop.oss-cn-beijing.aliyuncs.com/20200607085521_Czt8N.gif',
+    'https://mooc-drop.oss-cn-beijing.aliyuncs.com/20200607085521_Czt8N.gif',
   ], // 该推文的图片地址集
 };
+/**
+* 单个tweet
+*/
+const Tweet = () => {
+  const [data, setData] = useState(tweet);
 
-const TweetCard = () => {
-  const goTo = useGoTo();
+  useEffect(() => {
+    setData(tweet);
+  }, []);
 
   return (
     <div className={style.container}>
-      <div className={style.avatarContainer}>
-        <img src={tweet.user.avatar_url} alt="头像" className={style.avatar} />
-      </div>
+      <Header />
       <div className={style.contentContainer}>
         <div className={style.header}>
-          <span className={style.nickname}>{tweet.user.nickname}</span>
-          <span className={style.username}>
-            @
-            {tweet.user.username}
-          </span>
-          &nbsp;·&nbsp;
-          {moment(tweet.created_at).format('MM分钟')}
+          <img src={data.user.avatar_url} alt="" className={style.avatar} />
+          <div className={style.right}>
+            <div className={style.nickname}>
+              {data.user.nickname}
+            </div>
+            <div className={style.username}>
+              @
+              {data.user.username}
+            </div>
+          </div>
         </div>
-        <div className={style.content} onClick={() => goTo('tweet', { id: tweet.id })}>
-          {tweet.content}
+        <div className={style.content}>
+          {data.content}
         </div>
         <div className={style.photo}>
           <ImageCard
-            imgs={tweet.photo_urls}
-            commentsCount={tweet.comments_count}
-            likesCount={tweet.likes_count}
+            imgs={data.photo_urls}
+            likesCount={data.likes_count}
+            commentsCount={data.comments_count}
           />
+        </div>
+        <div className={style.time}>
+          {moment(data.created_at).format('A h:m · YYYY年M月D日')}
+          Twitter for iPhone
         </div>
         <div className={style.bar}>
           <Bar
-            id={tweet.id}
-            commentsCount={tweet.comments_count}
-            likesCount={tweet.likes_count}
+            id={data.id}
+            likesCount={data.likes_count}
+            commentsCount={data.comments_count}
           />
         </div>
       </div>
@@ -96,4 +108,4 @@ const TweetCard = () => {
   );
 };
 
-export default TweetCard;
+export default Tweet;

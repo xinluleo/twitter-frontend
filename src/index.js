@@ -3,6 +3,7 @@ import Comment from '@containers/Comment';
 import CreateTweet from '@containers/CreateTweet';
 import Login from '@containers/Login';
 import Register from '@containers/Register';
+import Tweet from '@containers/Tweet';
 import Tweets from '@containers/Tweets';
 import { CtxProvider } from '@utils/context';
 import React from 'react';
@@ -28,6 +29,7 @@ root.render(
             <Route path="/search" element={<Comment />} />
             <Route path="/tip" element={<Comment />} />
             <Route path="/message" element={<Comment />} />
+            <Route path="/tweet/:id" element={<Tweet />} />
           </Route>
         </Routes>
       </BrowserRouter>
