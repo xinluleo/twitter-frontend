@@ -14,8 +14,15 @@ export const CtxProvider = ({
 }) => {
   const [store, setStore] = useState(defaultStore);
 
+  const update = (v) => {
+    setStore((prev) => ({
+      ...prev,
+      ...v,
+    }));
+  };
+
   const value = useMemo(() => ({
-    store, setStore,
+    store, update,
   }), [store]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
@@ -27,5 +34,5 @@ CtxProvider.propTypes = {
 
 export const useAppContext = () => {
   const ctx = useContext(AppContext);
-  return [ctx.store, ctx.setStore];
+  return [ctx.store, ctx.update];
 };

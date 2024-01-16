@@ -1,4 +1,4 @@
-@import '../../common.module.scss';
+@import '../../index.scss';
 
 .login {
   padding: 40px;
@@ -15,11 +15,11 @@
 }
 
 .formContainer {
-  composes: formContainer from '../../common.module.scss';
+  composes: formContainer from '../../index.scss';
 }
 
 .formTitle {
-  composes: formTitle from '../../common.module.scss';
+  composes: formTitle from '../../index.scss';
 }
 
 .goToRegister {

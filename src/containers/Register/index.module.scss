@@ -1,4 +1,4 @@
-@import '../../common.module.scss';
+@import '../../index.scss';
 
 .form {
   margin: 0 30px;
@@ -13,7 +13,7 @@
 }
 
 .input {
-  composes: input from '../../common.module.scss';
+  composes: input from '../../index.scss';
 }
 
 .changeTypeButton {

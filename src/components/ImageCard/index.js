@@ -1,6 +1,8 @@
-import { Image } from 'antd-mobile';
+import Bar from '@components/Bar';
+import { Image, ImageViewer } from 'antd-mobile';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { useRef, useState } from 'react';
 
 import style from './index.module.scss';
 
@@ -14,7 +16,12 @@ import style from './index.module.scss';
 */
 const ImageCard = ({
   imgs,
+  commentsCount,
+  likesCount,
 }) => {
+  const imageViewerRef = useRef();
+  const [visible, setVisible] = useState(false);
+
   const getWrapper = () => {
     switch (imgs.length) {
       case 1:
@@ -30,6 +37,11 @@ const ImageCard = ({
     }
   };
 
+  const onClickImg = (index) => {
+    setVisible(true);
+    imageViewerRef.current.swipeTo(index);
+  };
+
   return (
     <div className={style.container}>
       <div className={classNames(style.wrapper, getWrapper())}>
@@ -40,19 +52,38 @@ const ImageCard = ({
             key={classNames(img, index)}
             src={img}
             alt=""
+            onClick={() => onClickImg(index)}
           />
         ))}
       </div>
+      <ImageViewer.Multi
+        ref={imageViewerRef}
+        images={imgs}
+        visible={visible}
+        onClose={() => setVisible(false)}
+      />
+      {visible
+        && (
+        <Bar
+          isBottom
+          commentsCount={commentsCount}
+          likesCount={likesCount}
+        />
+        )}
     </div>
   );
 };
 
 ImageCard.propTypes = {
   imgs: PropTypes.arrayOf(PropTypes.string),
+  commentsCount: PropTypes.number,
+  likesCount: PropTypes.number,
 };
 
 ImageCard.defaultProps = {
   imgs: [],
+  commentsCount: 0,
+  likesCount: 0,
 };
 
 export default ImageCard;

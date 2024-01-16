@@ -5,6 +5,7 @@
       "username": "xin",
       "tel": "13333333333",
       "birthday": "20210109",
+      "avatar_url": "https://img.shoufaw.com/wp-content/uploads/2020/10/aEjURn.jpg",
       "id": 1
     },
     {
@@ -12,7 +13,22 @@
       "username": "Test",
       "tel": "15555555555",
       "birthday": "20240108",
+      "avatar_url": "https://img.shoufaw.com/wp-content/uploads/2020/10/aEjURn.jpg",
       "id": 2
     }
+  ],
+  "comments": [
+    {
+      "content": "agwe",
+      "tweet_id": "1",
+      "id": 1
+    },
+    {
+      "content": "托尔斯泰",
+      "tweet_id": "1",
+      "id": 2
+    }
+  ],
+  "tweets": [
   ]
 }
