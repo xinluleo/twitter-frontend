@@ -1,4 +1,5 @@
 {
+  "/api/newsfeeds": "/newsfeeds",
   "/api/comments": "/comments",
   "/api/tweets": "/tweets",
   "/api/likes": "/likes",

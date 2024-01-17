@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { generatePath, useLocation, useNavigate } from 'react-router-dom';
 import { getMenuByKey, getMenuByLink, includeMenu } from './constants';
 
@@ -29,4 +30,67 @@ export const useGoTo = () => {
 export const useIncludeMenu = () => {
   const location = useLocation();
   return includeMenu(location.pathname);
+};
+
+const MAX_Y = 100;
+
+/**
+ * 下拉刷新 hook
+ */
+export const usePullToRefresh = () => {
+  // 触发条件: document.documentElement.scrollTop === 0
+  // 事件:
+  // 记录y的偏移量
+  // 最大偏移量 MAX_Y
+  const y = useRef(0);
+  const [tip, setTip] = useState();
+
+  useEffect(() => {
+    window.ontouchstart = (e) => {
+      if (document.documentElement.scrollTop === 0) {
+        y.current = e.touches[0].pageY;
+      }
+    };
+
+    window.ontouchmove = (e) => {
+      if (document.documentElement.scrollTop > 0) {
+        return;
+      }
+      if (e.touches[0].pageY - y.current > MAX_Y) {
+        setTip('释放立即刷新');
+        return;
+      }
+      if (e.touches[0].pageY - y.current > 0) {
+        setTip('下拉刷新');
+      }
+    };
+
+    return () => {
+      window.ontouchstart = null;
+      window.ontouchmove = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    window.ontouchend = () => {
+      if (document.documentElement.scrollTop === 0) {
+        if (tip === '释放立即刷新') {
+          setTip('加载中...');
+          setTimeout(() => {
+            setTip('刷新成功');
+            setTimeout(() => {
+              setTip('');
+            }, 500);
+          }, 1000);
+          return;
+        }
+        setTip('');
+      }
+    };
+    return () => {
+      window.ontouchend = null;
+    };
+  }, [tip]);
+
+  return tip;
 };
