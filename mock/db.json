@@ -29,6 +29,87 @@
       "id": 2
     }
   ],
-  "tweets": [
+  "tweets": [],
+  "likes": [
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 1
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 2
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 3
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 4
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 5
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 6
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 7
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 8
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 9
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 10
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 11
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 12
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 13
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 14
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 15
+    },
+    {
+      "content_type": "tweet",
+      "object_id": 1,
+      "id": 16
+    }
   ]
 }

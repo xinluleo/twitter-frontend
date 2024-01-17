@@ -3,6 +3,7 @@ import Header from '@components/Header';
 import ImageCard from '@components/ImageCard';
 import { useEffect, useState } from 'react';
 
+import { OBJECT_TYPES } from '@components/Bar/constants';
 import moment from 'moment';
 import style from './index.module.scss';
 
@@ -101,6 +102,7 @@ const Tweet = () => {
             id={data.id}
             likesCount={data.likes_count}
             commentsCount={data.comments_count}
+            contentType={OBJECT_TYPES.TWEET}
           />
         </div>
       </div>

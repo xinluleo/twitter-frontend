@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 
+import { OBJECT_TYPES } from '@components/Bar/constants';
 import style from './index.module.scss';
 
 /**
@@ -68,6 +69,7 @@ const ImageCard = ({
           isBottom
           commentsCount={commentsCount}
           likesCount={likesCount}
+          contentType={OBJECT_TYPES.TWEET}
         />
         )}
     </div>

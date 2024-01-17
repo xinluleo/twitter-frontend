@@ -1,4 +1,5 @@
 import TweetCard from '@components/TweetCard';
+
 import style from './index.module.scss';
 
 /**

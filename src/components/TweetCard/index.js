@@ -3,6 +3,7 @@ import ImageCard from '@components/ImageCard';
 import { useGoTo } from '@utils/hooks';
 import moment from 'moment';
 
+import { OBJECT_TYPES } from '@components/Bar/constants';
 import style from './index.module.scss';
 
 const tweet = {
@@ -89,6 +90,7 @@ const TweetCard = () => {
             id={tweet.id}
             commentsCount={tweet.comments_count}
             likesCount={tweet.likes_count}
+            contentType={OBJECT_TYPES.TWEET}
           />
         </div>
       </div>

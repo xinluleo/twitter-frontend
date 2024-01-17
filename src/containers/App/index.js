@@ -26,7 +26,7 @@ const App = () => {
         return;
       }
       const res = await getUser(userId);
-      if (res.data) {
+      if (res && res.data) {
         updateStore({
           user: res.data,
         });
