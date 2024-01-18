@@ -94,3 +94,47 @@ export const usePullToRefresh = () => {
 
   return tip;
 };
+
+const OFFSET = 50;
+
+/**
+ * 上拉加载 hook
+ */
+export const usePullUpToLoad = () => {
+  const [loading, setLoading] = useState(false);
+
+  // 判断是否触底
+  // 1 相关高度:
+  // document.documentElement.clientHeight
+  // document.body.scrollHeight
+  // document.documentElement.scrollTop
+  // 2 触底条件: scrollTop + clientHeight = scrollHeight
+  // 3 OFFSET 偏移量
+  // scrollTop + clientHeight >= scrollHeight - OFFSET;
+  useEffect(() => {
+    window.onscroll = () => {
+      if (loading) {
+        return;
+      }
+      const { scrollTop, clientHeight } = document.documentElement;
+      const { scrollHeight } = document.body;
+      if (scrollTop + clientHeight >= scrollHeight - OFFSET) {
+        setLoading(true);
+      }
+    };
+    return () => {
+      window.onscroll = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        console.log('加载完成');
+        setLoading(false);
+      }, 2000);
+    }
+  }, [loading]);
+
+  return loading;
+};
