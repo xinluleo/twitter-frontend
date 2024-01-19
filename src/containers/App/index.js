@@ -12,7 +12,7 @@ import CreateButton from '@components/CreateButton';
 import style from './index.module.scss';
 
 const App = () => {
-  const [, updateStore] = useAppContext();
+  const [store, updateStore] = useAppContext();
   const navigate = useNavigate();
   const location = useLocation();
   const menu = useCurrentMenu();
@@ -25,8 +25,11 @@ const App = () => {
         navigate('/login');
         return;
       }
+      if (store.user) {
+        return;
+      }
       const res = await getUser(userId);
-      if (res.data) {
+      if (res && res.data) {
         updateStore({
           user: res.data,
         });
@@ -38,7 +41,7 @@ const App = () => {
       navigate('/login');
     };
     init();
-  }, []);
+  }, [location.pathname]);
 
   const onClickCreateTweet = () => {
     navigate('/createTweet');

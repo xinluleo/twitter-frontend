@@ -1,50 +1,62 @@
-import homeSvg from '@assets/home.svg';
-import messageSvg from '@assets/message.svg';
-import searchSvg from '@assets/search.svg';
-import tipSvg from '@assets/tip.svg';
-
+import { UnorderedListOutline, UserCircleOutline } from 'antd-mobile-icons';
 import { matchPath } from 'react-router-dom';
-import style from '../common.module.scss';
 
 export const menus = [
+  {
+    key: 'tweet',
+    title: '推文',
+    link: '/tweet/:id',
+    hideHeader: true,
+  },
   {
     key: 'tweets',
     title: '主页',
     link: '/',
     isMenu: true,
-    icon: <img className={style.icon} src={homeSvg} alt="" />,
+    icon: <UnorderedListOutline />,
   },
   {
-    key: 'search',
-    title: '搜索',
-    link: '/search',
+    key: 'my',
+    link: '/my',
+    title: '个人资料',
     isMenu: true,
-    icon: <img className={style.icon} src={searchSvg} alt="search" />,
+    icon: <UserCircleOutline />,
   },
-  {
-    key: 'tip',
-    title: '通知',
-    link: '/tip',
-    isMenu: true,
-    icon: <img className={style.icon} src={tipSvg} alt="tip" />,
-  },
-  {
-    key: 'message',
-    title: '私信',
-    link: '/message',
-    isMenu: true,
-    icon: <img className={style.icon} src={messageSvg} alt="message" />,
-  },
+  // {
+  //   key: 'search',
+  //   title: '搜索',
+  //   link: '/search',
+  //   isMenu: true,
+  //   icon: <img className={style.icon} src={searchSvg} alt="search" />,
+  // },
+  // {
+  //   key: 'tip',
+  //   title: '通知',
+  //   link: '/tip',
+  //   isMenu: true,
+  //   icon: <img className={style.icon} src={tipSvg} alt="tip" />,
+  // },
+  // {
+  //   key: 'message',
+  //   title: '私信',
+  //   link: '/message',
+  //   isMenu: true,
+  //   icon: <img className={style.icon} src={messageSvg} alt="message" />,
+  // },
   {
     key: 'comment',
-    title: '回复',
     link: '/comment/:id',
     hideHeader: true,
   },
   {
     key: 'createTweet',
-    title: '发推',
     link: '/createTweet',
+    hideHeader: true,
+  },
+  {
+    key: 'editUser',
+    title: '编辑个人信息',
+    link: '/editUser',
     hideHeader: true,
   },
 ];

@@ -15,11 +15,11 @@
 }
 
 .formContainer {
-  composes: formContainer from '../../index.scss';
+  composes: formContainer from '../../common.module.scss';
 }
 
 .formTitle {
-  composes: formTitle from '../../index.scss';
+  composes: formTitle from '../../common.module.scss';
 }
 
 .goToRegister {

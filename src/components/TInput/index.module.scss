@@ -19,7 +19,7 @@
   box-sizing: border-box;
   padding-right: 20px;
   z-index: -1;
-  transition: all 0.2s ease-out
+  transition: all 0.2s
 }
 
 .labelFocused {
@@ -27,7 +27,7 @@
   top: 5px;
   color: $tBlue;
   font-size: 14px;
-  transition: all 0.2s ease-out
+  transition: all 0.2s
 }
 
 .labelRight {
