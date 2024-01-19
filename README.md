@@ -33,3 +33,6 @@ service: const getUser = (params) => get('/user', params).then((res) => {
 ## 工程化的配置信息
 - carco.config.js: 配置 webpack 文件的快捷方式
 - jsconfig.json: vscode 使用的 js 相关配置文件
+
+## H5页面适配方案
+- VW VH
