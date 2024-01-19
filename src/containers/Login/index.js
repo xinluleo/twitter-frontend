@@ -1,14 +1,18 @@
 import TInput from '@components/TInput';
 import { login } from '@services/login';
+import { useGoTo } from '@utils/hooks';
 import {
   Button, Dialog, Form,
 } from 'antd-mobile';
+import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 
 import style from './index.module.scss';
 
 const Login = () => {
   const [form] = Form.useForm();
+  const goTo = useGoTo();
+
   const onSubmit = async () => {
     const values = await form.validateFields();
     if (values) {
@@ -17,6 +21,8 @@ const Login = () => {
         Dialog.alert({
           content: '登录成功',
         });
+        Cookies.set('userId', res.data[0].id);
+        goTo('tweets');
         return;
       }
       Dialog.alert({

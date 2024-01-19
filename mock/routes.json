@@ -1,4 +1,5 @@
 {
+  "/api/profiles/:userId": "/user/:userId",
   "/api/newsfeeds": "/newsfeeds",
   "/api/comments": "/comments",
   "/api/tweets": "/tweets",

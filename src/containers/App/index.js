@@ -12,7 +12,7 @@ import CreateButton from '@components/CreateButton';
 import style from './index.module.scss';
 
 const App = () => {
-  const [, updateStore] = useAppContext();
+  const [store, updateStore] = useAppContext();
   const navigate = useNavigate();
   const location = useLocation();
   const menu = useCurrentMenu();
@@ -23,6 +23,9 @@ const App = () => {
       if (!userId) {
         Toast.show('请先登录');
         navigate('/login');
+        return;
+      }
+      if (store.user) {
         return;
       }
       const res = await getUser(userId);
@@ -38,7 +41,7 @@ const App = () => {
       navigate('/login');
     };
     init();
-  }, []);
+  }, [location.pathname]);
 
   const onClickCreateTweet = () => {
     navigate('/createTweet');

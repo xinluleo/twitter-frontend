@@ -1,7 +1,9 @@
+import Avatar from '@components/Avatar';
 import { useAppContext } from '@utils/context';
 import { useGoTo } from '@utils/hooks';
-import { Popup } from 'antd-mobile';
+import { Popup, Toast } from 'antd-mobile';
 import { UserOutline } from 'antd-mobile-icons';
+import Cookies from 'js-cookie';
 import PropTypes from 'prop-types';
 
 import style from './index.module.scss';
@@ -16,6 +18,17 @@ const MyPopup = ({
   const [store] = useAppContext();
   const goTo = useGoTo();
 
+  const handleLogout = () => {
+    Cookies.set('userId', '');
+    Toast.show('登出成功');
+    window.location.reload();
+  };
+
+  const handleToMy = () => {
+    onClose();
+    goTo('my');
+  };
+
   return (
     <Popup
       visible={visible}
@@ -25,7 +38,7 @@ const MyPopup = ({
     >
       <div className={style.container}>
         <div className={style.title}>账号信息</div>
-        <img className={style.avatar} src={store.user.avatar_url} alt="头像" />
+        <Avatar avatarUrl={store.user.avatar_url} className={style.avatar} />
         <div className={style.nickname}>
           {store.user?.nickname || 'unknown'}
         </div>
@@ -39,13 +52,13 @@ const MyPopup = ({
           <span className={style.numberOfFollowers}>200</span>
           关注者
         </div>
-        <div className={style.listItem} onClick={() => goTo('my')}>
+        <div className={style.listItem} onClick={handleToMy}>
           <UserOutline />
           <span className={style.info}>
             个人资料
           </span>
         </div>
-        <div className={style.footer}>
+        <div className={style.footer} onClick={handleLogout}>
           登出
         </div>
       </div>

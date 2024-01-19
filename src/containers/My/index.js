@@ -1,6 +1,9 @@
-import Header from '@components/Header';
+import TweetCard from '@components/TweetCard';
+import { getTweets } from '@services/tweet';
 import { useAppContext } from '@utils/context';
+import { useGoTo } from '@utils/hooks';
 import { Button, Tabs } from 'antd-mobile';
+import { useEffect, useState } from 'react';
 
 import style from './index.module.scss';
 
@@ -9,13 +12,27 @@ import style from './index.module.scss';
 */
 const My = () => {
   const [store] = useAppContext();
+  const [data, setData] = useState([]);
+  const goTo = useGoTo();
+
+  useEffect(() => {
+    const init = async () => {
+      const res = await getTweets();
+      setData(res.data);
+    };
+    init();
+  }, []);
 
   return (
     <div className={style.container}>
-      <Header title={store.user?.nickname || 'unknown'} />
       <div className={style.header} />
       <img className={style.avatar} src={store.user?.avatar_url} alt="头像" />
-      <Button className={style.edit}>更新个人资料</Button>
+      <Button
+        className={style.edit}
+        onClick={() => goTo('editUser')}
+      >
+        更新个人资料
+      </Button>
       <div className={style.nickname}>{store.user?.nickname || 'unknown'}</div>
       <div className={style.username}>
         @
@@ -29,10 +46,7 @@ const My = () => {
       </div>
       <Tabs>
         <Tabs.Tab title="推文" key="tweet">
-          tweet
-        </Tabs.Tab>
-        <Tabs.Tab title="推文和回复" key="reply">
-          reply
+          {data.map((item) => <TweetCard key={item.id} dataSource={item} />)}
         </Tabs.Tab>
       </Tabs>
     </div>

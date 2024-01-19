@@ -18,3 +18,25 @@ $tBlackColor: #0f1419;
 .adm-text-area {
   --placeholder-color: $tFontColor;
 }
+
+.adm-tabs-content {
+  padding: 0;
+}
+
+.adm-tabs-tab {
+  font-size: 14px;
+}
+
+.adm-tabs-tab-active {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.adm-list-item {
+  background: none;
+}
+
+.adm-mask {
+  background-color: #000 !important;
+}

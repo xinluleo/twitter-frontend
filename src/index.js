@@ -1,6 +1,7 @@
 import App from '@containers/App';
 import Comment from '@containers/Comment';
 import CreateTweet from '@containers/CreateTweet';
+import EditUser from '@containers/EditUser';
 import Login from '@containers/Login';
 import My from '@containers/My';
 import Register from '@containers/Register';
@@ -30,6 +31,7 @@ root.render(
           <Route path="/message" element={<Comment />} />
           <Route path="/my" element={<My />} />
           <Route path="/tweet/:id" element={<Tweet />} />
+          <Route path="/editUser" element={<EditUser />} />
         </Route>
       </Routes>
     </BrowserRouter>

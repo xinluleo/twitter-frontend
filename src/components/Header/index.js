@@ -1,3 +1,4 @@
+import Avatar from '@components/Avatar';
 import MyPopup from '@components/MyPopup';
 import { useAppContext } from '@utils/context';
 import { useCurrentMenu, useGoTo } from '@utils/hooks';
@@ -48,13 +49,12 @@ const Header = ({
         />,
       );
       headerComponents.push(
-        <div
-          key="avatarUrl"
+        <Avatar
           className={style.backHeader}
+          key="avatarUrl"
+          avatarUrl={store.user?.avatar_url}
           onClick={() => setVisible(true)}
-        >
-          <img src={store.user.avatar_url} alt="avatar" className={style.avatar} />
-        </div>,
+        />,
       );
       headerComponents.push(
         <span key="title" className={style.title}>
