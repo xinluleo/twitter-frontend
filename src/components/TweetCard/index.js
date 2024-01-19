@@ -25,7 +25,7 @@ const TweetCard = ({
             {tweet.user.username}
           </span>
           &nbsp;·&nbsp;
-          {moment(tweet.created_at).format('MM分钟')}
+          {moment(tweet.created_at).format('mm分钟')}
         </div>
         <div className={style.content} onClick={() => goTo('tweet', { id: tweet.id })}>
           {tweet.content}
